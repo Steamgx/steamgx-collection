@@ -1,4 +1,4 @@
-const FASHION_API_URL = 'http://localhost:5000/api/items';
+const FASHION_API_URL = 'https://steamgx-collection-backend-1.onrender.com/api/items';
 const fashionList = document.getElementById('fashion-items-list');
 const galleryPlaceholder = document.getElementById('fashion-gallery-placeholder');
 

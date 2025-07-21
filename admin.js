@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:5000/api/items';
+const API_URL = 'https://steamgx-collection-backend-1.onrender.com/api/items';
+const UPLOAD_URL = 'https://steamgx-collection-backend-1.onrender.com/api/upload';
 const ADMIN_PASSWORD = '0769998718bM_';
 
 // Elements
@@ -109,13 +110,13 @@ addItemForm.addEventListener('submit', async e => {
         const formData = new FormData();
         formData.append('image', file);
         try {
-            const uploadRes = await fetch('http://localhost:5000/api/upload', {
+            const uploadRes = await fetch(UPLOAD_URL, {
                 method: 'POST',
                 body: formData
             });
             const uploadData = await uploadRes.json();
             if (uploadRes.ok && uploadData.url) {
-                imageUrl = 'http://localhost:5000' + uploadData.url;
+                imageUrl = 'https://steamgx-collection-backend-1.onrender.com' + uploadData.url;
             } else {
                 formMessage.textContent = uploadData.error || 'Image upload failed.';
                 return;
